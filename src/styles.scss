@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+// Tema requerido para la correcta visualizacion de componentes
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+ /* Eliminar margin y padding que pone por defecto el navegador  */
+ body, html {
+  padding: 0;
+  margin: 0;
+}
+
+/* Sidenav de la misma altura que la ventana */
+mat-sidenav-container {
+  height:100vh;
+}
