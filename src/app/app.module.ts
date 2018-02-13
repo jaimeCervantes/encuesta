@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -17,6 +17,10 @@ import {
 
 import { EdicionComponent } from './edicion/edicion.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryData } from './services/in-memory-db';
+import { EncuestaService } from './services/encuesta.service';
+
 
 @NgModule({
   declarations: [
@@ -31,9 +35,13 @@ import { EdicionComponent } from './edicion/edicion.component';
     MatListModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryData, { dataEncapsulation: false }
+    )
   ],
-  providers: [],
+  providers: [EncuestaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

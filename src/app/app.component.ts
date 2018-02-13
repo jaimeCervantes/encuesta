@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+
+import { EdicionComponent } from './edicion/edicion.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Encuesta';
+  @ViewChild(EdicionComponent) edicionComp: EdicionComponent;
+
+  crearPregunta (tipo) {
+    this.edicionComp.crearPregunta(tipo);
+  }
 }
