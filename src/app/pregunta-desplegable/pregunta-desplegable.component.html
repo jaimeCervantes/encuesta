@@ -1,9 +1,31 @@
 <mat-form-field class="full">
-  <input matInput type="text" [(ngModel)]="info.respuesta" disabled>
+  <input matInput type="text" [(ngModel)]="info.pregunta"
+    placeholder="Escribi aquí tu pregunta"
+    [disabled]="!info.edicion">
 </mat-form-field>
-
-<mat-select placeholder="Selecciona" [(value)]="info.respuesta">
-  <mat-option *ngFor="let opc of info.opciones" [value]="opc.valor">
-    {{ opc.viewValue }}
-  </mat-option>
+<mat-select placeholder="Selecciona" [(value)]="info.respuesta"
+  [disabled]="!info.edicion">
+    <mat-option *ngFor="let opc of info.opciones" [value]="opc.valor">
+      {{ opc.viewValue }}
+    </mat-option>
 </mat-select>
+<h3>Respuestas:</h3>
+<div class="respuestas-container">
+  <div>
+    <div *ngFor="let opc of info.opciones" class="respuesta">
+      <mat-form-field class="full">
+        <input matInput type="text" [(ngModel)]="opc.valor"
+          placeholder="Valor de respuesta" [disabled]="!info.edicion">
+      </mat-form-field>
+      <mat-form-field class="full" >
+        <input matInput type="text" [(ngModel)]="opc.viewValue"
+        placeholder="Respuesta" [disabled]="!info.edicion">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="btns-container">
+    <button mat-mini-fab color="primary" (click)="agregarRespuesta()" [disabled]="!info.edicion">
+      <mat-icon aria-label="Agregar Respuesta">add</mat-icon>
+    </button>
+  </div> 
+</div>
