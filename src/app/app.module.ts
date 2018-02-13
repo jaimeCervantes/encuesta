@@ -26,13 +26,17 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryData } from './services/in-memory-db';
 import { EncuestaService } from './services/encuesta.service';
 import { PreguntaComponent } from './pregunta/pregunta.component';
+import { PreguntaCasillaComponent } from './pregunta-casilla/pregunta-casilla.component';
+import { PreguntaDesplegableComponent } from './pregunta-desplegable/pregunta-desplegable.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EdicionComponent,
-    PreguntaComponent
+    PreguntaComponent,
+    PreguntaCasillaComponent,
+    PreguntaDesplegableComponent
   ],
   imports: [
     BrowserModule,

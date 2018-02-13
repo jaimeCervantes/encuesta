@@ -1,0 +1,20 @@
+<div *ngIf="info.tipo === 'casilla'" class="respuestas-container">
+  <div>
+    <div *ngFor="let resp of info.respuesta" class="respuesta">
+      <mat-checkbox
+        [(ngModel)]="resp.valor"
+        disabled
+        class="full"
+        >{{resp.viewValue}}
+      </mat-checkbox>
+      <mat-form-field class="full">
+        <input matInput type="text" [(ngModel)]="resp.viewValue" placeholder="Valor de respuesta">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="btns-container">
+    <button mat-mini-fab color="primary" (click)="agregarRespuesta()">
+      <mat-icon aria-label="Agregar Respuesta">add</mat-icon>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.respuestas-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  > div {
+    flex: 1 1;
+    .respuesta {
+      display: flex;
+      flex-flow: row wrap;
+      > * {
+        flex: 1 1;
+      }
+    }
+  }
+
+  .btns-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}

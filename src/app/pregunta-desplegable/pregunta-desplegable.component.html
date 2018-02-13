@@ -1,0 +1,9 @@
+<mat-form-field class="full">
+  <input matInput type="text" [(ngModel)]="info.respuesta" disabled>
+</mat-form-field>
+
+<mat-select placeholder="Selecciona" [(value)]="info.respuesta">
+  <mat-option *ngFor="let opc of info.opciones" [value]="opc.valor">
+    {{ opc.viewValue }}
+  </mat-option>
+</mat-select>
