@@ -1,18 +1,22 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
       <mat-nav-list>
-        <h2 mdSubheader>Here are some links to help you start: </h2>
+        <h2 mdSubheader>Menú</h2>
         <a mat-list-item href="/edicion">Edición</a>
         <a mat-list-item href="/vista-previa">Vista Previa</a>
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-toolbar>
-      <button type="button" mat-button (click)="sidenav.open()">Menu</button>
-      <h1>{{title}}</h1>
+  <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      <div class="btns-container">
+        <button type="button" mat-button (click)="crearPregunta('texto')">Texto</button>
+        <button type="button" mat-button (click)="crearPregunta('casilla')">Casillas</button>
+        <button type="button" mat-button (click)="crearPregunta('desplegable')">Desplegable</button>
+      </div>
   </mat-toolbar>
 
   <div class="content">
-
+    <app-edicion></app-edicion>
   </div>
 </mat-sidenav-container>
