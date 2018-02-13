@@ -1,7 +1,30 @@
 <mat-form-field class="full">
   <input matInput type="text" [(ngModel)]="info.pregunta" placeholder="Escribi aquí tu pregunta" [disabled]="!info.edicion">
 </mat-form-field>
-<mat-form-field class="full">
-  <input matInput type="text" value="Tu respuesta" [disabled]="!info.edicion">
+
+<mat-form-field class="full" *ngIf="info.tipo === 'texto'">
+  <input matInput type="text" [(ngModel)]="info.respuesta" placeholder="Tu respuesta" [disabled]="!info.edicion">
 </mat-form-field>
+
+<div *ngIf="info.tipo === 'casilla'">
+  <mat-checkbox
+   *ngFor="let resp of info.respuesta"
+   [(ngModel)]="resp.valor"
+   [disabled]="!info.edicion"
+   class="full"
+   >{{resp.viewValue}}</mat-checkbox>
+</div>
+
+<div *ngIf="info.tipo === 'desplegable'">
+  <mat-form-field class="full">
+    <input matInput type="text" [(ngModel)]="info.respuesta" disabled>
+  </mat-form-field>
+
+  <mat-select placeholder="Selecciona" [(value)]="info.respuesta">
+      <mat-option *ngFor="let opc of info.opciones" [value]="opc.valor">
+        {{ opc.viewValue }}
+      </mat-option>
+    </mat-select>
+</div>
+  
   

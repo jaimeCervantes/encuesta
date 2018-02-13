@@ -9,8 +9,8 @@ mat-toolbar {
 .btns-container {
   display: flex;
   justify-content: center;
-  margin-left: 20px;
-  flex: 1 1 60%;
+  flex-flow: row wrap;
+  flex: 1 1 20px;
   * {
     flex: 1;
     font-size: 1.2rem;

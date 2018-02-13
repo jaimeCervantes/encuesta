@@ -1,8 +1,10 @@
 .full {
   width: 100%;
+  display: block;
 }
 
 :host {
   padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   display: block;
 }

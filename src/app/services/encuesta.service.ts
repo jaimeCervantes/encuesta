@@ -11,6 +11,6 @@ export class EncuestaService {
 
   getEncuesta () {
     return this.http
-      .get(this.urlPeopleApi).pipe(delay(1000));
+      .get(this.urlPeopleApi);
   }
 }

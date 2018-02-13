@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, ElementRef, HostListener } from '@angular/core';
+import { Component, Input, ElementRef, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-pregunta',
   templateUrl: './pregunta.component.html',
   styleUrls: ['./pregunta.component.scss']
 })
-export class PreguntaComponent implements OnInit {
+export class PreguntaComponent {
   private _info: Object;
 
   @Input()
@@ -22,9 +22,6 @@ export class PreguntaComponent implements OnInit {
   }
 
   constructor(private elemRef: ElementRef) { }
-
-  ngOnInit() {
-  }
 
   @HostListener('document:click', ['$event']) clickAfuera(event) {
     if (this.elemRef.nativeElement.contains(event.target)) {

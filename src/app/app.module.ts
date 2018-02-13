@@ -15,7 +15,10 @@ import {
   MatButtonModule,
   MatCardModule,
   MatIconModule,
-  MatInputModule } from '@angular/material';
+  MatInputModule,
+  MatCheckboxModule,
+  MatSelectModule
+ } from '@angular/material';
 
 import { EdicionComponent } from './edicion/edicion.component';
 
@@ -41,6 +44,8 @@ import { PreguntaComponent } from './pregunta/pregunta.component';
     MatCardModule,
     MatIconModule,
     MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule
     HttpClientModule,
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(
