@@ -51,7 +51,7 @@ import { ContadorTipoPipe } from './pipes/contador-tipo.pipe';
     MatIconModule,
     MatInputModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
     HttpClientModule,
     FormsModule,
     HttpClientInMemoryWebApiModule.forRoot(
