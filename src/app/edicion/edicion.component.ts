@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { EncuestaService } from '../services/encuesta.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Pregunta } from '../interfaces/pregunta';
 
 @Component({
   selector: 'app-edicion',
@@ -36,8 +37,8 @@ export class EdicionComponent implements OnInit, OnDestroy {
     this.preguntasListas.emit(this.encuesta.preguntas);
   }
 
-  crearPregunta (tipo) {
-    let pregunta = {
+  crearPregunta (tipo: string) {
+    const pregunta: Pregunta = {
       tipo: tipo,
       pregunta: ''
     };
@@ -69,5 +70,4 @@ export class EdicionComponent implements OnInit, OnDestroy {
     }
     this.preguntasListas.emit(this.encuesta.preguntas);
   }
-
 }

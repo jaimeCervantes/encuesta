@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Encuesta } from '../interfaces/encuesta';
 
 @Component({
   selector: 'app-pregunta-desplegable',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./pregunta-desplegable.component.scss', '../shared-styles/respuestas.scss']
 })
 export class PreguntaDesplegableComponent implements OnInit {
-  @Input() info: Object;
+  @Input() info: Encuesta;
   constructor() { }
 
   ngOnInit() {

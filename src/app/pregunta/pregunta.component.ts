@@ -1,4 +1,5 @@
 import { Component, Input, ElementRef, HostListener } from '@angular/core';
+import { Encuesta } from '../interfaces/encuesta';
 
 @Component({
   selector: 'app-pregunta',
@@ -6,10 +7,10 @@ import { Component, Input, ElementRef, HostListener } from '@angular/core';
   styleUrls: ['./pregunta.component.scss']
 })
 export class PreguntaComponent {
-  private _info: Object;
+  private _info: any;
 
   @Input()
-  set info(info: Object | string) {
+  set info(info: any ) {
     if (info.hasOwnProperty('pregunta')) {
       this._info = info;
     } else {
