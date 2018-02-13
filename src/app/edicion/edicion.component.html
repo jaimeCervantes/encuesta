@@ -1,8 +1,16 @@
-<mat-card class="main">
-  <mat-card-header *ngIf="encuesta">
-    <h2>{{encuesta.titulo}}</h2>
-  </mat-card-header>
-  <mat-card-content *ngIf="encuesta?.preguntas">
-
-  </mat-card-content>
-</mat-card>
+<form >
+  <mat-card class="main">
+    <mat-card-content *ngIf="encuesta">
+      <app-pregunta
+        [info]="encuesta.titulo"
+        >
+      </app-pregunta>
+      <div *ngFor="let pregunta of encuesta.preguntas">
+        <mat-divider></mat-divider>
+        <app-pregunta
+          [info]="pregunta"
+          ></app-pregunta>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>
