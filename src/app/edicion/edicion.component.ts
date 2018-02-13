@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { EncuestaService } from '../services/encuesta.service';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class EdicionComponent implements OnInit, OnDestroy {
   encuesta: any;
   subscription: Subscription;
+  @Output() preguntasListas = new EventEmitter<Array<Object>>();
   constructor(private encServ: EncuestaService) { }
 
   ngOnInit() {
@@ -24,10 +25,6 @@ export class EdicionComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  crearPregunta (tipo) {
-    alert(tipo);
-  }
-
   setDatos (datos) {
     datos.preguntas.forEach(element => {
       element.edicion = false;
@@ -36,6 +33,41 @@ export class EdicionComponent implements OnInit, OnDestroy {
     datos.titulo = { pregunta: datos.titulo, edicion: false };
 
     this.encuesta = datos;
+    this.preguntasListas.emit(this.encuesta.preguntas);
+  }
+
+  crearPregunta (tipo) {
+    let pregunta = {
+      tipo: tipo,
+      pregunta: ''
+    };
+
+    switch (tipo) {
+      case 'texto':
+        pregunta.respuesta = '';
+        this.encuesta.preguntas.push(pregunta);
+        break;
+      case 'casilla':
+
+        pregunta.respuesta = [{
+          valor: false,
+          viewValue: ''
+        }];
+
+        this.encuesta.preguntas.push(pregunta);
+        break;
+      case 'desplegable':
+
+        pregunta.respuesta = '';
+        pregunta.opciones = [{
+          valor: '',
+          viewValue: ''
+        }];
+
+        this.encuesta.preguntas.push(pregunta);
+        break;
+    }
+    this.preguntasListas.emit(this.encuesta.preguntas);
   }
 
 }

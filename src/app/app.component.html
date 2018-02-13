@@ -1,22 +1,14 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav>
-      <mat-nav-list>
-        <h2 mdSubheader>Menú</h2>
-        <a mat-list-item href="/edicion">Edición</a>
-        <a mat-list-item href="/vista-previa">Vista Previa</a>
-    </mat-nav-list>
-  </mat-sidenav>
 
   <mat-toolbar color="primary">
-      <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
       <div class="btns-container">
-        <button type="button" mat-button (click)="crearPregunta('texto')">Texto</button>
-        <button type="button" mat-button (click)="crearPregunta('casilla')">Casillas</button>
-        <button type="button" mat-button (click)="crearPregunta('desplegable')">Desplegable</button>
+        <button type="button" mat-button (click)="crearPregunta('texto')">Texto <span *ngIf="preguntas">({{preguntas | contadorTipo:'texto'}})</span></button>
+        <button type="button" mat-button (click)="crearPregunta('casilla')">Casillas <span *ngIf="preguntas">({{preguntas | contadorTipo:'casilla'}})</span></button>
+        <button type="button" mat-button (click)="crearPregunta('desplegable')">Desplegable <span *ngIf="preguntas">({{preguntas | contadorTipo:'desplegable'}})</span></button>
       </div>
   </mat-toolbar>
 
   <div class="content">
-    <app-edicion></app-edicion>
+    <app-edicion (preguntasListas)="actualizarPreguntas($event)"></app-edicion>
   </div>
 </mat-sidenav-container>

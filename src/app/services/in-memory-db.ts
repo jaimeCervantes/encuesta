@@ -15,7 +15,7 @@ export class InMemoryData implements InMemoryDbService {
           tipo: 'casilla',
           respuesta: [
             {
-              valor: true,
+              valor: false,
               viewValue: 'HTML'
             },
             {
@@ -23,7 +23,7 @@ export class InMemoryData implements InMemoryDbService {
               viewValue: 'Javascript'
             },
             {
-              valor: 'true',
+              valor: false,
               viewValue: 'CSS'
             }
           ]

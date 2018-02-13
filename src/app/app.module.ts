@@ -28,6 +28,7 @@ import { EncuestaService } from './services/encuesta.service';
 import { PreguntaComponent } from './pregunta/pregunta.component';
 import { PreguntaCasillaComponent } from './pregunta-casilla/pregunta-casilla.component';
 import { PreguntaDesplegableComponent } from './pregunta-desplegable/pregunta-desplegable.component';
+import { ContadorTipoPipe } from './pipes/contador-tipo.pipe';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PreguntaDesplegableComponent } from './pregunta-desplegable/pregunta-de
     EdicionComponent,
     PreguntaComponent,
     PreguntaCasillaComponent,
-    PreguntaDesplegableComponent
+    PreguntaDesplegableComponent,
+    ContadorTipoPipe
   ],
   imports: [
     BrowserModule,
